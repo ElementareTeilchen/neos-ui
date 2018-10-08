@@ -62,17 +62,17 @@ export default class NodeTreeToolBar extends PureComponent {
     }
 
     handleHideNode = contextPath => {
-        const {hideNode, canBeEdited, visibilityCanBeToggled} = this.props;
+        const {hideNode, visibilityCanBeToggled} = this.props;
 
-        if (canBeEdited && visibilityCanBeToggled) {
+        if (visibilityCanBeToggled) {
             hideNode(contextPath);
         }
     }
 
     handleShowNode = contextPath => {
-        const {showNode, canBeEdited, visibilityCanBeToggled} = this.props;
+        const {showNode, visibilityCanBeToggled} = this.props;
 
-        if (canBeEdited && visibilityCanBeToggled) {
+        if (visibilityCanBeToggled) {
             showNode(contextPath);
         }
     }
@@ -163,7 +163,7 @@ export default class NodeTreeToolBar extends PureComponent {
                             i18nRegistry={i18nRegistry}
                             className={style.toolBar__btnGroup__btn}
                             focusedNodeContextPath={focusedNodeContextPath}
-                            disabled={destructiveOperationsAreDisabled || !canBeEdited || !visibilityCanBeToggled}
+                            disabled={destructiveOperationsAreDisabled || !visibilityCanBeToggled}
                             isHidden={isHidden}
                             onHide={this.handleHideNode}
                             onShow={this.handleShowNode}
